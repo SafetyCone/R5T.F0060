@@ -74,7 +74,7 @@ namespace R5T.F0060
             return result;
         }
 
-        public async Task<Result<bool>> DeleteRepository_Idempotent(string owner, string name)
+        public new async Task<Result<bool>> DeleteRepository_Idempotent(string owner, string name)
         {
             var result = T0146.Instances.ResultOperator.Result<bool>()
                 .WithTitle("Delete GitHub Repository")

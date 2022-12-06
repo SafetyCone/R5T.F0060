@@ -21,7 +21,7 @@ namespace R5T.F0060
 			string repositoryName,
 			ILogger logger)
 		{
-			var repositoryDirectoryPath = Instances.RepositoryDirectoryPathOperator.GetRepositoryDirectory(
+			var repositoryDirectoryPath = Instances.RepositoryDirectoryPathOperator.GetRepositoryDirectoryPath(
 				repositoryOwnerName,
 				repositoryName);
 

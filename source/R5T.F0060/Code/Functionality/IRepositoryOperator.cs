@@ -192,7 +192,7 @@ namespace R5T.F0060
 		{
 			var ownedRepositoryName = Instances.RepositoryNameOperator.GetOwnedRepositoryName(repositoryOwnerName, repositoryName);
 
-			var repositoryDirectoryPath = Instances.RepositoryDirectoryPathOperator.GetRepositoryDirectory(repositoryOwnerName, repositoryName);
+			var repositoryDirectoryPath = Instances.RepositoryDirectoryPathOperator.GetRepositoryDirectoryPath(repositoryOwnerName, repositoryName);
 
 			logger.LogInformation($"Deleting repository '{repositoryName}'...");
 

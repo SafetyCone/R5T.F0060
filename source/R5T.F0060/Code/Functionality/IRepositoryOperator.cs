@@ -250,7 +250,7 @@ namespace R5T.F0060
 
 			var pushAllChangesResult = Instances.GitHubOperator.PushAllChanges(
 				repositoryLocalDirectoryPath,
-				Instances.CommitMessages.InitialCommit,
+				Instances.CommitMessages.InitialCommit.Value,
 				logger);
 
 			var pushAllChangesReason = pushAllChangesResult.ToReason(

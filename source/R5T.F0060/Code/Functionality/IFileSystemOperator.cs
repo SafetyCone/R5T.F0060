@@ -11,7 +11,7 @@ namespace R5T.F0060
 	public partial interface IFileSystemOperator : IFunctionalityMarker,
 		F0002.IFileSystemOperator
 	{
-		public new Result CopyFile(
+		public Result CopyFile(
 			string sourceFilePath,
 			string destinationFilePath)
 		{
@@ -23,7 +23,7 @@ namespace R5T.F0060
 
 			try
 			{
-				this.As<IFileSystemOperator, F0000.IFileSystemOperator>().CopyFile(
+				this.As<IFileSystemOperator, F0000.IFileSystemOperator>().Copy_File(
 					sourceFilePath,
 					destinationFilePath);
 
@@ -97,9 +97,9 @@ namespace R5T.F0060
 			return result;
 		}
 
-		public new Result<bool> FileExists(string filePath)
+		public Result<bool> FileExists(string filePath)
 		{
-			var fileExists = F0000.Instances.FileSystemOperator.FileExists(filePath);
+			var fileExists = F0000.Instances.FileSystemOperator.Exists_File(filePath);
 
 			var successMessage = fileExists
 				? $"File exists: {filePath}"

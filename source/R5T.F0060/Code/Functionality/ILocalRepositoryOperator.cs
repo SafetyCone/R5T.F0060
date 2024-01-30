@@ -42,7 +42,7 @@ namespace R5T.F0060
 
 			bool Internal()
             {
-				var directoryExists = Instances.FileSystemOperator_Base.DirectoryExists(repositoryDirectoryPath);
+				var directoryExists = Instances.FileSystemOperator_Base.Exists_Directory(repositoryDirectoryPath);
 
 				var success = !directoryExists;
 

@@ -58,11 +58,11 @@ namespace R5T.F0060
 			return result;
 		}
 
-		public new Result<bool> DeleteDirectory_OkIfNotExists(string directoryPath)
+		public Result<bool> DeleteDirectory_OkIfNotExists(string directoryPath)
 		{
-			var directoryExists = Instances.FileSystemOperator_Base.DirectoryExists(directoryPath);
+			var directoryExists = Instances.FileSystemOperator_Base.Exists_Directory(directoryPath);
 
-			Instances.FileSystemOperator_Base.DeleteDirectory_OkIfNotExists(directoryPath);
+			Instances.FileSystemOperator_Base.Delete_Directory_OkIfNotExists(directoryPath);
 
 			var message = directoryExists
 				? $"Deleted directory: {directoryPath}"
@@ -78,9 +78,9 @@ namespace R5T.F0060
 			return result;
 		}
 
-		public new Result<bool> DirectoryExists(string directoryPath)
+		public Result<bool> DirectoryExists(string directoryPath)
 		{
-			var directoryExists = this.As<IFileSystemOperator, F0000.IFileSystemOperator>().DirectoryExists(directoryPath);
+			var directoryExists = this.As<IFileSystemOperator, F0000.IFileSystemOperator>().Exists_Directory(directoryPath);
 
 			// Always success, whether or not the directory exists is a different story.
 			var successMessage = directoryExists

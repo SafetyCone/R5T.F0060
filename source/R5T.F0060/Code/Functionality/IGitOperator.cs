@@ -110,7 +110,7 @@ namespace R5T.F0060
 			return output;
 		}
 
-		public new Result<bool> HasUnpushedLocalChanges(string repositoryDirectoryPath)
+		public Result<bool> HasUnpushedLocalChanges(string repositoryDirectoryPath)
 		{
 			var result = Instances.ResultOperator.Result<bool>()
 				.WithTitle("Check if Any Unpushed Changes")
@@ -119,7 +119,7 @@ namespace R5T.F0060
 
 			try
 			{
-				var hasAnyUnpushedLocalChanges = this.As<IGitOperator, F0041.IGitOperator>().HasUnpushedLocalChanges(repositoryDirectoryPath);
+				var hasAnyUnpushedLocalChanges = this.Has_UnpushedChanges(repositoryDirectoryPath);
 
 				result
 					.WithValue(hasAnyUnpushedLocalChanges)
@@ -134,7 +134,7 @@ namespace R5T.F0060
 			return result;
 		}
 
-		/// <inheritdoc cref="F0019.IGitOperator.Push(string, Authentication)"/>
+		/// <inheritdoc cref="F0041.IGitOperator.Push(string, Authentication)"/>
 		public new Result Push(
 			string localRepositoryDirectoryPath,
 			Authentication authentication)
@@ -172,7 +172,7 @@ namespace R5T.F0060
 			return output;
 		}
 
-		public new Result StageAllUnstagedPaths(string repositoryDirectoryPath)
+		public Result StageAllUnstagedPaths(string repositoryDirectoryPath)
 		{
 			var result = Instances.ResultOperator.Result<bool>()
 				.WithTitle("Stage All Unstaged Paths")
@@ -181,7 +181,7 @@ namespace R5T.F0060
 
 			try
 			{
-				this.As<IGitOperator, F0041.IGitOperator>().StageAllUnstagedPaths(repositoryDirectoryPath);
+				this.Stage_UnstagedPaths(repositoryDirectoryPath);
 
 				result.WithSuccess("Git success: staging all unstaged paths succeeded.");
 			}
